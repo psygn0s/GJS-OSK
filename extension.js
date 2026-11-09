@@ -905,6 +905,28 @@ class Keyboard extends Dialog {
         this.box.set_opacity(op)
     }
 
+    placeOnTop() {
+        try {
+            let target = Main.uiGroup;
+            if (major >= 51) {
+                try {
+                    const g = global.compositor.get_input_panel_group();
+                    if (g)
+                        target = g;
+                } catch (_e) {}
+            }
+            if (this.get_parent() !== target) {
+                this.get_parent()?.remove_child(this);
+                target.add_child(this);
+            }
+            this.get_parent()?.set_child_above_sibling(this, null);
+        } catch (_e) {
+            try {
+                Main.uiGroup.set_child_above_sibling(this, null);
+            } catch (_e2) {}
+        }
+    }
+
     open(noPrep = null, instant = null) {
         if (this.updateCapsLock) this.updateCapsLock()
         if (this.updateNumLock) this.updateNumLock()
@@ -916,7 +938,7 @@ class Keyboard extends Dialog {
             this.inputDevice = global.stage.context.get_backend().get_default_seat().create_virtual_device(Clutter.InputDeviceType.KEYBOARD_DEVICE);
             this.state = State.OPENING
             this.show();
-            Main.uiGroup.set_child_above_sibling(this, null);
+            this.placeOnTop();
         }
         if (noPrep == null || noPrep) {
             if (major >= 48) {
@@ -957,7 +979,7 @@ class Keyboard extends Dialog {
                 })
             }
             this.opened = true;
-            Main.uiGroup.set_child_above_sibling(this, null);
+            this.placeOnTop();
             // [insert handwriting 5]
         }
     }
@@ -1636,7 +1658,7 @@ class Keyboard extends Dialog {
                 return;
             }
             this.keyInProgress = true;
-            let event_time = Clutter.get_current_event_time() * 1000;
+            let event_time = Clutter.get_current_event_time();
             for (var i = 0; i < keys.length; i++) {
                 this.inputDevice.notify_key(event_time, keys[i], Clutter.KeyState.PRESSED);
             }
