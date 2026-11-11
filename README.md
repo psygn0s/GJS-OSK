@@ -2,6 +2,11 @@
 
 This fix addresses compatibility issues with the **GJS-OSK** GNOME Shell extension on Fedora 45 running GNOME 51.
 
+
+Update 1: Fixed entering system password bug.
+<br>
+Update 2: Fixed file renaming bug present in original GJS-OSK release.
+
 ## Installation
 
 1. Download the patched `extension.js` file from this repository.
