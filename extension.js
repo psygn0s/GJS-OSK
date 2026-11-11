@@ -849,6 +849,12 @@ class Keyboard extends Dialog {
                 this.delta = [];
                 this.emit('drag-end');
                 this._dragging = false;
+
+                // Remember the current window position if enabled
+                if (this.settings.get_boolean("remember-position")) {
+                    this.settings.set_double("last-position-x", this.translation_x);
+                    this.settings.set_double("last-position-y", this.translation_y);
+                }
             }
             this.draggable = false;
             return Clutter.EVENT_STOP;
@@ -945,11 +951,30 @@ class Keyboard extends Dialog {
                 global.display.get_compositor().disable_unredirect()
             }
             let monitor = Main.layoutManager.monitors[currentMonitorId] ?? Main.layoutManager.primaryMonitor;
-            let posX = [this.settings.get_int("snap-spacing-px"), ((monitor.width * .5) - ((this.width * .5))), monitor.width - this.width - this.settings.get_int("snap-spacing-px")][(this.settings.get_int("default-snap") % 3)];
-            let posY = [this.settings.get_int("snap-spacing-px"), ((monitor.height * .5) - ((this.height * .5))), monitor.height - this.height - this.settings.get_int("snap-spacing-px")][Math.floor((this.settings.get_int("default-snap") / 3))];
+            let posX, posY;
+            let useRemembered = false;
+            if (this.settings.get_boolean("remember-position")) {
+                const lastX = this.settings.get_double("last-position-x");
+                const lastY = this.settings.get_double("last-position-y");
+                // Use remembered position if it looks valid (not the unset default of -1)
+                if (lastX > -1 && lastY > -1) {
+                    // Basic bounds check against current monitor (allow some offscreen tolerance)
+                    if (lastX < monitor.x + monitor.width + 100 && lastX > monitor.x - this.width - 100 &&
+                        lastY < monitor.y + monitor.height + 100 && lastY > monitor.y - this.height - 100) {
+                        posX = lastX - monitor.x;
+                        posY = lastY - monitor.y;
+                        useRemembered = true;
+                    }
+                }
+            }
+            if (!useRemembered) {
+                posX = [this.settings.get_int("snap-spacing-px"), ((monitor.width * .5) - ((this.width * .5))), monitor.width - this.width - this.settings.get_int("snap-spacing-px")][(this.settings.get_int("default-snap") % 3)];
+                posY = [this.settings.get_int("snap-spacing-px"), ((monitor.height * .5) - ((this.height * .5))), monitor.height - this.height - this.settings.get_int("snap-spacing-px")][Math.floor((this.settings.get_int("default-snap") / 3))];
+            }
             if (noPrep == null) {
                 let mX = [-this.box.width, 0, this.box.width][(this.settings.get_int("default-snap") % 3)];
-                let mY = [-this.box.height, 0, this.box.height][Math.floor((this.settings.get_int("default-snap") / 3))]
+                let mY = [-this.box.height, 0, this.box.height][Math.floor((this.settings.get_int("default-snap") / 3))];
+                // For initial slide-in, use default-snap direction even if using remembered final pos
                 this.set_translation(posX + mX + monitor.x, posY + mY + monitor.y, 0)
             }
             this.box.ease({
@@ -1789,4 +1814,4 @@ class Keyboard extends Dialog {
         this.alt = false;
         this.updateKeyLabels()
     }
-}
+            }
