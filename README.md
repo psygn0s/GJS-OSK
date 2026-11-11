@@ -16,8 +16,10 @@ Update 3: Added "Remember Window Position" switch.
 ## Installation
 
 1. Download the whole zip file from this repository.
+2. <br>
+![Remember Position setting](screenshots/2.png)
 
-2. Open a terminal and navigate to your GJS-OSK extension directory:
+3. Open a terminal and navigate to your GJS-OSK extension directory:
 ```bash
 cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 ```
