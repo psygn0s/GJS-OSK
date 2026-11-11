@@ -19,6 +19,7 @@ Update 3: Added "Remember Window Position" switch.
 <br>
 ![Remember Position setting](screenshots/2.png)
 
+
 3. Open a terminal and navigate to your GJS-OSK extension directory:
 ```bash
 cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
