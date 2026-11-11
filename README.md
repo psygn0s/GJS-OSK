@@ -16,7 +16,7 @@ Update 3: Added "Remember Window Position" switch.
 ## Installation
 
 1. Download the whole zip file from this repository.
-2. <br>
+<br>
 ![Remember Position setting](screenshots/2.png)
 
 3. Open a terminal and navigate to your GJS-OSK extension directory:
