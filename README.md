@@ -49,7 +49,7 @@ glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.co
 sudo logout
 ```
 
-After relogging, GJS-OSK should load the updated extension.
+7. After relogging, GJS-OSK should load the updated extension.
 
 ## Restore the Original Files.
 
@@ -63,10 +63,22 @@ mv schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup org.gnome.shell.
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/schemas/
 ```
 
-Then relog.
-
+8. Then relog.
 
 
 ## Disclaimer
 
 This is an unofficial community compatibility fix. Always keep a backup of your original extension files before making changes.
+
+
+---
+
+## 💬 Join the Discussion
+
+Have feedback, questions, or ideas? Leave a comment directly on our discussion thread:
+
+[[Join the Discussion]](https://github.com/psygn0s/GJS-OSK/discussions/1)
+
+
+
+---
