@@ -28,6 +28,21 @@
     <key name="enable-drag" type="b">
       <default>true</default>
     </key>
+    <key name="remember-position" type="b">
+      <default>true</default>
+      <summary>Remember keyboard position</summary>
+      <description>When enabled, the keyboard will reopen at the last place you dragged it to, instead of the default snap position.</description>
+    </key>
+    <key name="last-position-x" type="d">
+      <default>-1</default>
+      <summary>Last keyboard X position</summary>
+      <description>Internal: stores the absolute X translation of the keyboard after the user drags it.</description>
+    </key>
+    <key name="last-position-y" type="d">
+      <default>-1</default>
+      <summary>Last keyboard Y position</summary>
+      <description>Internal: stores the absolute Y translation of the keyboard after the user drags it.</description>
+    </key>
     <key name="background-r" type="d">
       <default>250</default>
     </key>
@@ -80,35 +95,40 @@
       <default>""</default>
     </key>
     <key name="enable-tap-gesture" type="i">
-		<default>1</default>
+      <default>1</default>
     </key>
     <key name="indicator-enabled" type="b">
       <default>true</default>
-    </key>   
+    </key>
     <key name="play-sound" type="b">
-		<default>true</default>
+      <default>true</default>
     </key>
     <key name="sound-file" type="s">
       <default>""</default>
     </key>
     <key name="show-icons" type="b">
-	    <default>true</default>
+      <default>true</default>
     </key>
     <key name="enable-key-repeat" type="b">
-	    <default>false</default>
+      <default>false</default>
     </key>
     <key name="key-repeat-rate" type="i">
-	    <default>100</default>
+      <default>100</default>
+    </key>
+    <key name="show-suggestions" type="b">
+      <default>false</default>
+    </key>
+    <key name="typing-booster-on-osk" type="b">
+      <default>false</default>
     </key>
     <child name="indicator" schema="org.gnome.shell.extensions.gjsosk.indicator"/>
-	
   </schema>
   <schema id="org.gnome.shell.extensions.gjsosk.indicator" path="/org/gnome/shell/extensions/gjsosk/indicator/">
-  <key name="opened" type="b">
-		<default>false</default>
-	</key>
-  <key name="keyboard-visible" type="b">
-    <default>false</default>
-  </key>
-	</schema>
+    <key name="opened" type="b">
+      <default>false</default>
+    </key>
+    <key name="keyboard-visible" type="b">
+      <default>false</default>
+    </key>
+  </schema>
 </schemalist>
