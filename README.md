@@ -33,7 +33,7 @@ cp prefs.js prefs.js.backup
 cp schemas/org.gnome.shell.extensions.gjsosk.gschema.xml schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup
 ```
 
-4. Extract downloaded zip file and replace existing files in
+4. Extract downloaded zip file and replace existing files at
 ```bash
 ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 ```
@@ -63,7 +63,6 @@ mv schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup org.gnome.shell.
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/schemas/
 ```
 
-8. Then relog.
 
 
 ## Disclaimer
