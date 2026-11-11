@@ -6,32 +6,40 @@ This fix addresses compatibility issues with the **GJS-OSK** GNOME Shell extensi
 Update 1: Fixed entering system password bug.
 <br>
 Update 2: Fixed file renaming bug present in original GJS-OSK release.
+<br>
+Update 3: Added "Remember Window Position" switch.
+![Remember Position setting](screenshots/1.png)
 
 ## Installation
 
-1. Download the patched `extension.js` file from this repository.
+1. Download the whole zip file from this repository.
 
 2. Open a terminal and navigate to your GJS-OSK extension directory:
-
 ```bash
 cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 ```
 
-3. Back up your existing file:
-
+4. Back up your existing file:
 ```bash
 cp extension.js extension.js.backup
+cp prefs.js prefs.js.backup
+cp schemas/org.gnome.shell.extensions.gjsosk.gschema.xml schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup
 ```
 
-4. Replace the existing `extension.js` with the downloaded file.
+4. Replace the existing files with the downloaded files.
 
-5. Reboot your system:
+5. Recompile the schemas.
+```bash
+glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/schemas/
+```
+
+7. Re-log your system:
 
 ```bash
-sudo reboot
+sudo logout
 ```
 
-After rebooting, GJS-OSK should load the updated extension.
+After relogging, GJS-OSK should load the updated extension.
 
 ## Restore the Original File
 
@@ -40,18 +48,14 @@ If you encounter problems, restore your backup:
 ```bash
 cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 mv extension.js.backup extension.js
+mv prefs.js.backup prefs.js
+mv schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup org.gnome.shell.extensions.gjsosk.gschema.xml
+glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/schemas/
 ```
 
 Then reboot.
 
-## Compatibility
 
-| Component              | Version / Name              |
-|------------------------|-----------------------------|
-| Operating System       | Fedora 45                   |
-| Desktop Environment    | GNOME 51                    |
-| Extension              | GJS-OSK                     |
-| Fix                    | Modified `extension.js`     |
 
 ## Disclaimer
 
