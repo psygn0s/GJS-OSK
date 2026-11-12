@@ -43,7 +43,7 @@ cp physicalLayouts.json physicalLayouts.json.backup
 cp stylesheet.css stylesheet.css.backup
 ```
 
-5. Extract downloaded zip file and replace existing files at
+5. Manually extract downloaded zip file and replace existing files at
 ```bash
 ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 ```
