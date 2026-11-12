@@ -18,17 +18,18 @@ Update 4: Fixed show spell checker / predictive text in drag bar. (Requires ibus
 
 ## Installation.
 
-1. Download the whole zip file from this repository.
+1. Download the zip file from this repository.
 
-![Remember Position setting](screenshots/2.png)
-
+<pre><code>GJS-OSK Extension Fix: <a href="https://github.com/psygn0s/GJS-OSK/archive/refs/heads/main.zip">https://github.com/psygn0s/GJS-OSK/archive/refs/heads/main.zip</a></code></pre>
 
 2. Open a terminal and navigate to your GJS-OSK extension directory:
+
 ```bash
 cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 ```
 
 3. Back up your existing files (optional):
+   
 ```bash
 cp extension.js extension.js.backup
 cp prefs.js prefs.js.backup
