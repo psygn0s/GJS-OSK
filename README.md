@@ -18,17 +18,22 @@ Update 4: Fixed show spell checker / predictive text in drag bar. (Requires ibus
 
 ## Installation.
 
-1. Download the zip file from this repository.
+1. You should already have GJS-OSK Extension installed. If not, no problem.
+   
+<pre><code>GJS-OSK Extension: <a href="https://extensions.gnome.org/extension/5949/gjs-osk/">https://extensions.gnome.org/extension/5949/gjs-osk/</a></code></pre>
+
+2. Download the zip file from this repository.
 
 <pre><code>GJS-OSK Extension Fix: <a href="https://github.com/psygn0s/GJS-OSK/archive/refs/heads/main.zip">https://github.com/psygn0s/GJS-OSK/archive/refs/heads/main.zip</a></code></pre>
 
-2. Open a terminal and navigate to your GJS-OSK extension directory:
+
+3. Now navigate to your GJS-OSK extension directory:
 
 ```bash
 cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 ```
 
-3. Back up your existing files (optional):
+4. Back up your existing files (optional):
    
 ```bash
 cp extension.js extension.js.backup
@@ -38,23 +43,23 @@ cp physicalLayouts.json physicalLayouts.json.backup
 cp stylesheet.css stylesheet.css.backup
 ```
 
-4. Extract downloaded zip file and replace existing files at
+5. Extract downloaded zip file and replace existing files at
 ```bash
 ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 ```
 
-5. Recompile the schemas.
+6. Recompile the schemas.
 ```bash
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/schemas/
 ```
 
-6. Re-log your system:
+7. Re-log your system:
 
 ```bash
 sudo logout
 ```
 
-7. After relogging, GJS-OSK should load the updated extension.
+8. After relogging, GJS-OSK should load the updated extension.
 
 ## Restore the Original Files.
 
