@@ -34,6 +34,8 @@ cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 cp extension.js extension.js.backup
 cp prefs.js prefs.js.backup
 cp schemas/org.gnome.shell.extensions.gjsosk.gschema.xml schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup
+cp physicalLayouts.json physicalLayouts.json.backup
+cp stylesheet.css stylesheet.css.backup
 ```
 
 4. Extract downloaded zip file and replace existing files at
@@ -62,8 +64,11 @@ If you encounter problems, restore your backup:
 cd ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/
 mv extension.js.backup extension.js
 mv prefs.js.backup prefs.js
-mv schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup org.gnome.shell.extensions.gjsosk.gschema.xml
+mv schemas/org.gnome.shell.extensions.gjsosk.gschema.xml.backup schemas/org.gnome.shell.extensions.gjsosk.gschema.xml
+mv stylesheet.css.backup stylesheet.css
+mv physicalLayouts.json.backup physicalLayouts.json
 glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.com/schemas/
+
 ```
 
 
