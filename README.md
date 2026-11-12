@@ -11,8 +11,10 @@ Update 2: Fixed file renaming bug present in original GJS-OSK release.
 <br>
 <br>
 Update 3: Added "Remember Window Position" switch in GJS-OSK settings.
+<br>
+<br>
+Update 4: Fixed show spell checker / predictive text in drag bar. (Requires ibus-typing-booster)
 
-![Remember Position setting](screenshots/1.png)
 
 ## Installation.
 
