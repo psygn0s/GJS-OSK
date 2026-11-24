@@ -52,7 +52,7 @@ glib-compile-schemas ~/.local/share/gnome-shell/extensions/gjsosk@vishram1123.co
 6. Re-log your system:
 
 ```bash
-sudo logout
+gnome-session-quit --logout
 ```
 
 7. After relogging, GJS-OSK should load the updated extension.
